@@ -6,12 +6,13 @@
 </head>
 <body>
   <script>
-    // Your JavaScript goes here!
-    console.log("Hello, World!")
 
+    // Function returns either rock, paper or scissors randomly
     function computerPlay(){
+      //Computer choice is set equal to a random number from 0 to 99.99
       let computerChoice = Math.random()*100;
 
+      //if statement used to determine what choice to return based on the result of computerChoice
       if(computerChoice<=33)
       {
         return 'Rock';
@@ -27,11 +28,15 @@
 
 
     
-
+    //This function simulates a round of rock, paper, scissors by comparing user input to a random result 
+    //returned from the computerPlay function
     function playRound(playerSelection,computerSelection){
+      //Parameters are assigned to varaibles to be compared in the function after they have been made lowercase
+      //to avoid any issues with case
       let comparablePlayerSelection = playerSelection.toLowerCase();
       let comparableComputerSelection = computerSelection.toLowerCase();
 
+      //If statement to determine the result if the player input is rock
       if(comparablePlayerSelection == 'rock')
       {
         if(comparableComputerSelection=='rock'){
@@ -41,6 +46,7 @@
         return (comparableComputerSelection=='paper')?  'You lose!! Paper beats Rock!' : 'You win!! Rock beats Scissors!';
       }
 
+      //If statement to determine the result if the player input is paper
       if(comparablePlayerSelection == 'paper')
       {
         if(comparableComputerSelection=='paper'){
@@ -50,6 +56,7 @@
         return (comparableComputerSelection=='scissors')?  'You lose!! Scissors cuts Paper!!' : 'You win!! Paper covers Rock!';
       }
 
+      //If statement to determine the result if the player input is scissors
       if(comparablePlayerSelection == 'scissors')
       {
         if(comparableComputerSelection=='scissors'){
@@ -59,12 +66,14 @@
         return (comparableComputerSelection=='rock')?  'You lose!! Rock beats Scissors!' : 'You win!! Scissors cuts Paper!!';
       }
 
+      //Return statement in case the player enters any thing besides the three choices
       return 'That is not a valid response please try again';
     }
 
 
-
+  //This function simulates five games of rock, paper, scissors and tells the player if they won or lost at the end
   function game(){
+    //Variables declared to store computer and player selections, the wins, losses, and ties as well as a counter variable
     let i;
     let playerSelection;
     let computerSelection;
@@ -73,13 +82,19 @@
     let losses = 0;
     let ties = 0;
 
+    //For loop used to simulate 5 games of rock paper scissors
     for(i=0; i<5; i++){
+      //Prompts player for their choice 
       playerSelection = window.prompt('Rock, Paper, or Scissors?');
-      computerSelection=computerPlay();
+      //Assigns a random result to the computers selection
+      computerSelection=computerPlay(); 
+      //logs the result to the console
       console.log(playRound(playerSelection, computerSelection));
 
+      //Sets the winOrLose variable to a section of the returned message to determine the result
       winOrLose=playRound(playerSelection, computerSelection).slice(4,5);
       
+      //if statement used to determine what counter to increase or if a game needs to be replayed
       if(winOrLose=='l'){
         losses++;
       }
@@ -90,12 +105,11 @@
         ties++;
       }
       else{
-        console.log('That is not a valid response');
         i--;
       }
     }
     
-
+    //If statement logs the final results to the console depending on if its a win,loss, or tie
     if(wins>losses){
       console.log('Congragulations! You won! ' + wins + ' wins to ' + losses + ' losses and '+ ties + ' ties');
     }else if(losses>wins){
