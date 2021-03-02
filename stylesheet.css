@@ -1,0 +1,50 @@
+#logResults{
+ text-align: center;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+h3{
+    color: white;
+    text-align: center;
+}
+
+#buttons{
+    text-align: center;
+}
+.button{
+    background-color: white;
+    border: 5px;
+    border-color: blue;
+    border-radius: 20%;
+    padding: 10px 10px;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    margin:auto;
+    width: 10%;
+}
+
+#reset{
+    position:absolute;
+    bottom:0;
+    left: 45%;
+}
+
+.button:hover{
+    font-size:18px;
+}
+
+#mainBody{
+    background-color: black;
+    text-align: center;
+    
+}
+
+#logResults{
+    color:white;
+    font-size: 25px;
+}
