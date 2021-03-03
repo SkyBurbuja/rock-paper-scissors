@@ -116,5 +116,5 @@
         log.appendChild(result);
       }
 
-      const buttonChoice = document.querySelectorAll('button');
+      const buttonChoice = document.querySelectorAll('.button');
       buttonChoice.forEach(button => button.addEventListener('click',buttonRound));
